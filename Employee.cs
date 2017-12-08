@@ -2,7 +2,7 @@ using System;
 
 namespace Mod2_Lab1
 {
-    public class Employee
+    public abstract class Employee
     {
 
         private static int employeeCount = 0;
@@ -27,10 +27,7 @@ namespace Mod2_Lab1
 
         public String toString() => ($"{this.Id} {this.Name}");
 
-        public virtual String employeeStatus()
-        {
-            return toString() + " is registrated";
-        }
+        public abstract String employeeStatus();
     }
 
     //TechnicalEmployee Class inheriting from Employee Class
@@ -48,7 +45,7 @@ namespace Mod2_Lab1
         // Returns basic info as in base class and adds specific to technican- successful check in info
         public override String employeeStatus()
         {
-            return base.employeeStatus() + ", has " + successfulCheckIns + " successful check ins";
+            return this.toString() + " has " + successfulCheckIns + " successful check ins";
         }
     }
 
@@ -65,8 +62,8 @@ namespace Mod2_Lab1
 
         public override String employeeStatus()
         {
-            return base.employeeStatus() + ", has " + bonusBudget + " successful check ins";
+            return this.toString() + " has " + bonusBudget + " bonus budget";
         }
-        
+
     }
 }
